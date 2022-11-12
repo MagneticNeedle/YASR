@@ -1,9 +1,11 @@
+# https://leetcode.com/problems/find-median-from-data-stream/description/
+# todo: implement heap to increase run time
+
 import bisect
 class MedianFinder:
 
     def __init__(self):
         self.array = []
-        self.mid = -1
         self.is_even = True
 
     def addNum(self, num: int) -> None:
@@ -31,5 +33,4 @@ for index, function in enumerate(functions):
     if function == "addNum":
         obj.addNum(inputs[index][0])
     elif function == "findMedian":
-
         print(f'mid:- {obj.mid}, {obj.findMedian()}, \t{obj.array}', end='\n')
