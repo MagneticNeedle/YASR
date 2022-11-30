@@ -3,6 +3,7 @@ from pathlib import Path
 import os
 from typing import Callable
 import sys
+import json
 
 last_modified = max([file for file in Path(__file__).parent.glob("*.py") if file.stem != "runner"],
                     key=lambda x: os.path.getctime(x.resolve()))
@@ -14,4 +15,4 @@ if __name__ == '__main__':
     if functions:
         func: Callable = next(iter(functions))
         print(f"Running function : {func.__name__} from file {last_modified.stem}\n")
-        print(func(sys[1:]))
+        print(func(*[json.loads(i) for i in sys.argv[1:]]))
