@@ -3,9 +3,12 @@ import requests
 from pathlib import Path
 from datetime import datetime
 
-_SESSION_FILE_NAME = "session.txt"
-_YEAR_FILE_NAME = "year.txt"
 
+_BASE_DIR = Path(__file__).parent.parent
+_SESSION_FILE_NAME = _BASE_DIR / "session.txt"
+_YEAR_FILE_NAME = _BASE_DIR / "year.txt"
+
+print(_BASE_DIR)
 
 def _set_read_file(filename: str, default: str = None) -> Union[str, None]:
     try:
@@ -44,9 +47,10 @@ def get_input(day: int, year: int = YEAR, overwrite: bool = False):
     ```python
     """
 
-    Path("data").mkdir(exist_ok=True)
+    data_dir = _BASE_DIR / "data"
+    data_dir.mkdir(exist_ok=True)
 
-    file_name = f"data/{year}_{day}.txt"
+    file_name = data_dir / f"{year}_{day}.txt"
     data = None if overwrite else _set_read_file(file_name)
     if not data:
         response = requests.get(

@@ -1,7 +1,7 @@
 import operator
 from functools import reduce
 from pathlib import Path
-from aoc import get_input
+from aoc import get_input  # noqa
 
 hex_to_bin_map = {
     "\n": "",
