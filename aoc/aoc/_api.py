@@ -55,7 +55,7 @@ def get_input(day: int, year: int = YEAR, overwrite: bool = False):
     if not data:
         response = requests.get(
                 f"https://adventofcode.com/{year}/day/{day}/input",
-                cookies={"session": SESSION})
+                cookies={"session": SESSION}, headers={'User-Agent': 'https://github.com/p0lygun/YASR/tree/main/aoc'})
         if not response.ok:
             if response.status_code == 404:
                 raise FileNotFoundError(response.text)
