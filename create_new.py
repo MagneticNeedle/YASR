@@ -30,7 +30,7 @@ else:
             with open(base_path / 'aoc' / 'year.txt') as year:
                 site = "aoc/" + year.read().strip()
             base_file = base_file.strip()
-            base_file += """\nfrom ..aoc import get_input\n\nday_input =  get_input(3).strip()\n\n"""
+            base_file += f"""\nfrom ..aoc import get_input\n\nday_input =  get_input({first}).strip()\n\n"""
         case _:
             print("Unkown site, exiting....")
             exit(1)
