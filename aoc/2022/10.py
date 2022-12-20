@@ -152,22 +152,27 @@ addx -11
 noop
 noop
 noop
-""".strip().split('\n')
+""".strip().split(
+    "\n"
+)
+
+
 def update_crt(cycle, pos, crt):
-    r,c = divmod(cycle, 40)
-    if pos-1 <= c <= pos+1:
-        crt[r][c] = '#'
+    r, c = divmod(cycle, 40)
+    if pos - 1 <= c <= pos + 1:
+        crt[r][c] = "#"
 
 
 def print_crt(crt):
     for r in crt:
         print(*r)
 
-day_input =  get_input(10).strip()
-day_input = day_input.split('\n')
-cycle  = 0
+
+day_input = get_input(10).strip()
+day_input = day_input.split("\n")
+cycle = 0
 pos = 1
-crt = [['.' for i in range(39)] for i in range(6)]
+crt = [["." for i in range(39)] for i in range(6)]
 
 x = 1
 ss = 0
@@ -175,19 +180,29 @@ nth_cycle = 20
 max_nth_cycle = inf
 for ins in day_input:
     match ins[0]:
-        case 'n':
+        case "n":
             update_crt(cycle, pos, crt)
             cycle += 1
-        case 'a':
-            for i in range(1,3):
+        case "a":
+            for i in range(1, 3):
                 update_crt(cycle, pos, crt)
                 cycle += 1
             val = int(ins.split()[1])
             pos += val
         # print(nth_cycle)
 
-            
+
 print_crt(crt)
 
+import math
 
 
+class Solution:
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        s = defaultdict(int)
+        return sorted(
+            points,
+            key=lambda x: s[t]
+            if (t := tuple(x)) in s
+            else s.update({t: math.sqrt(t[0]**2 + t[1]**2)}) or s[t],
+        )[0:k]
