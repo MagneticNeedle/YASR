@@ -10,7 +10,8 @@ _YEAR_FILE_NAME = _BASE_DIR / "year.txt"
 
 print(_BASE_DIR)
 
-def _set_read_file(filename: str, default: str = None) -> Union[str, None]:
+
+def _set_read_file(filename: str | Path, default: str = None) -> Union[str, None]:
     try:
         with open(filename) as file:
             return file.read()
@@ -37,6 +38,7 @@ if not YEAR:
         str(datetime.now().year))
     assert YEAR is not None
 YEAR = int(YEAR.strip())
+
 
 def get_input(day: int, year: int = YEAR, overwrite: bool = False):
     """
