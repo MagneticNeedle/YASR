@@ -1,4 +1,4 @@
-from  ..aoc import get_input
+from  ..aoc_api import get_input
 
 
 day_input = get_input(5).strip()

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from ..aoc import get_input
+from ..aoc_api import get_input
 from collections import defaultdict
 data = get_input(9).strip()
 lines = [x for x in data.split('\n')]

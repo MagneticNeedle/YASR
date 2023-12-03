@@ -1,4 +1,4 @@
-from ..aoc import get_input
+from ..aoc_api import get_input
 
 l = 0
 d = get_input(6).strip()

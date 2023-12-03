@@ -1,4 +1,4 @@
-from ..aoc import get_input
+from ..aoc_api import get_input
 
 day_input = [
     ("ABC".index(move[0]), "XYZ".index(move[2])) for move in

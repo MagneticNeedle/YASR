@@ -1,4 +1,4 @@
-from ..aoc import get_input
+from ..aoc_api import get_input
 from sortedcontainers import SortedList, SortedSet
 from collections import defaultdict, Counter
 from itertools import chain

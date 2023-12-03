@@ -1,6 +1,6 @@
 # this script is a solution to Advent of Code 2022, day 4
 
-from ..aoc import get_input
+from ..aoc_api import get_input
 
 day_input = get_input(4).split('\n')
 total_items = len(day_input)
