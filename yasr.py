@@ -13,6 +13,12 @@ import bisect
 
 \n""".lstrip()
 
+
+def ensure_base_dir_exists(directory: Path):
+    directory.mkdir(parents=True, exist_ok=True)
+    directory.joinpath('__init__.py').touch(exist_ok=True)
+
+
 first = sys.argv[1]
 second = None if len(sys.argv) <= 2 else sys.argv[2]
 if not first.isnumeric():  # by default make a leetcode solution
@@ -31,14 +37,15 @@ else:
             with open(base_path / 'aoc' / 'year.txt') as year:
                 site = "aoc/" + year.read().strip()
             base_file = base_file.strip()
-            base_file += f"""\nfrom ..aoc import get_input\n\nday_input =  get_input({first}).strip()\n\n"""
+            base_file += f"""\nfrom ..aoc_api import get_input\n\nday_input = get_input({first}).strip()\n\n"""
         case _:
             print("Unkown site, exiting....")
             exit(1)
 file_path = Path(__file__).parent / site / f'{first}.py'
-if file_path.exists():
-    print(f"{file_path} exists")
-    exit(0)
-with file_path.open('w') as file:
-    file.write(base_file)
-print(f'{file_path} Created')
+ensure_base_dir_exists(file_path.parent)
+
+if not file_path.exists():
+    file_path.write_text(base_file)
+    print(f'{file_path} Created')
+else:
+    print(f'{file_path} Already exists')
