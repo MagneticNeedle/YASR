@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["p0lygun <solankivibhakar82@gmail.com>"]
 readme = "README.md"
+packages = [
+    { include = "aoc_api", from = "aoc" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
