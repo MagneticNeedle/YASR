@@ -15,7 +15,7 @@ import bisect
 AOC_TEMPLATE = """
 import aoc_api
 
-day_input = aoc_api.get_input(5).strip()
+day_input = aoc_api.get_input({day}).strip()
 print(day_input)
 
 
@@ -31,8 +31,10 @@ def p2():
     ...
 
 
-print(p1())
-print(p2())
+if __name__ == '__main__':
+    print(p1())
+    print(p2())
+
 """
 
 
