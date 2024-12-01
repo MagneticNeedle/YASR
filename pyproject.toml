@@ -10,10 +10,10 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.11"
-requests = "^2.31.0"
-numpy = "^1.26.2"
-networkx = {extras = ["default"], version = "^3.2.1"}
-pygraphviz = "^1.11"
+requests = "^2.32.3"
+numpy = "^1.26.4"
+networkx = {extras = ["default"], version = "^3.4.2"}
+pygraphviz = "^1.14"
 cairosvg = "^2.7.1"
 
 
