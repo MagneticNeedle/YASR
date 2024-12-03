@@ -14,8 +14,7 @@ def parse_raw(pattern: str):
 
     
 def p1():
-    pairs = sum([(int(a)*int(b)) for a, b in parse_raw(r"mul\((\d+),\s*(\d+)\)")])
-    print(pairs)
+    return sum([(int(a)*int(b)) for a, b in parse_raw(r"mul\((\d+),\s*(\d+)\)")])
 
     
 def p2():
@@ -30,6 +29,6 @@ def p2():
 
 
 if __name__ == '__main__':
-    # print(p1())
+    print(p1())
     print(p2())
 
